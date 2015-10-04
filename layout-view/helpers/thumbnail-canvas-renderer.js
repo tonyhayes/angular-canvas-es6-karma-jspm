@@ -95,8 +95,15 @@ export default function thumbnailCanvasRenderer () {
                 gPieces = [];
                 //loop over row count, add a cell for each col
                 for (var i = 0; i < kBoardHeight; i++) {
-                    for (var j = 0; j < kBoardWidth; j++) {
-                       gPieces.push(new Cell(i,j));
+                    //if the row is odd, reverse for loop
+                    if(i%2){
+                        for (var j = kBoardWidth-1; j >= 0; j--) {
+                           gPieces.push(new Cell(i,j));
+                        }                        
+                    }else{
+                        for (var j = 0; j < kBoardWidth; j++) {
+                           gPieces.push(new Cell(i,j));
+                        }                        
                     }
                 }
                 gNumPieces = gPieces.length;
