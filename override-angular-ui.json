@@ -1,0 +1,11 @@
+{
+	"shim": {
+		"angular-ui": {
+			"deps": [ "angular" ]
+		}
+	},
+	"registry": "jspm",
+	"dependencies": {
+		"angular": "^1.4"
+	}
+}

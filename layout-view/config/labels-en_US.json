@@ -1,0 +1,11 @@
+{
+
+    "ITEM_PLACEHOLDER": "Type to play...",
+    "ITEM_MISSING_SEARCH_PARM": "This search requires both values to be entered",
+    "ITEM_BAD_COLUMN_SEARCH_PARM": "The game requires a positive number",
+	"LAYOUT_VIEW_WORD_GAME": "Word or phrase",
+	"LAYOUT_VIEW_DISPLAY_DEPTH": "Columns to draw",
+
+
+    "ZZZ": "for on-line error check - add before this item"
+}

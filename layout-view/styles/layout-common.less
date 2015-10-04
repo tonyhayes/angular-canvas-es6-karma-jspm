@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400");
+
+
+@layoutViewViewportBackground: #444444;
+@layoutViewPageBorderColor: blue;
+@layoutViewPageGripBorderColor: blue;
+@layoutViewPageBackgroundColor: rgb(255, 255, 255);
+@layoutViewHeaderBackgroundColor: #FFFFFF;
+
+@layoutViewInputFieldFont: 300 1em/1.5em 'Lato';
+@layoutViewRegularFont: 400 1em/1.5em 'Lato';
+@layoutViewLightFont: 300 1em/1.5em 'Lato';
+@layoutViewInputFieldFontSize: 14px;
+@layoutViewInputFieldLineHeight: 18px;
+@layoutViewInputFontColor: #BBBBBB;
+@layoutViewInputFontBackgroundColor: #FFFFFF;
+@layoutViewInputBorderColor: #FFFFFF;
+@layoutViewPageGripBackgroundColor: #91C949;
+@searchItemBackgroundColor: #E1EDFA;
+@selectedItemBackgroundColor: #b4bdc8;
+@gray: #333;
+@gray-light: #aaa;
+@gray-lighter: #eee;
+@space: 40px;
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#LayoutView {
+	position: absolute;
+	top: 50px;
+	bottom: 40px;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+
+	* {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		cursor: default;
+        user-select: none;
+        -ms-user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+	}
+
+	.viewport {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0px;
+		right: 0px;
+		overflow: hidden;
+		background-color: @layoutViewViewportBackground;
+		z-index: 0;
+        display: flex;
+        flex-direction: column;
+
+		&.noclip {   // FOR DEBUG
+			overflow: visible;
+		}
+
+		&.layoutview-fullscreen {
+		    position: fixed;
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		    z-index: 99999;
+		}
+	}
+	.layoutview-pageversion {
+		position: absolute;
+		background-color: @layoutViewPageBackgroundColor;
+	}
+	.layoutview-toolbar {
+		width: 100%;
+		padding-right: 20px;
+		padding-left: 25px;
+        min-height: 62px;
+        line-height: 62px;
+        background-color: @layoutViewHeaderBackgroundColor;
+
+	}
+    .layoutview-body {
+        position: relative;
+        flex-grow: 1;
+        z-index: 0;
+        overflow: hidden;
+        outline: none;
+    }
+
+	.pageversion-grip {
+    	position: absolute;
+        background-color: @layoutViewPageGripBackgroundColor;
+
+        .grip-center {
+            text-align: center;
+        }
+    }
+}
+
+.layout-viewport {
+    //
+    // Btn 
+    // ----------------------
+
+    //bootstrap override
+    .btn-group {
+        .btn {
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px; 
+            border-bottom-right-radius: 4px; 
+            border-bottom-left-radius: 4px;
+            text-align: left;
+            &:first-child:not(:last-child):not(.dropdown-toggle) {
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+        }
+    }
+    .button-spacing .layout-btn {
+        margin-top: 48px;
+        margin-left: 16px;
+        margin-bottom: 32px;
+    }
+    .button-spacing .layout-btn:last-of-type {
+        margin-right: 48px;
+    }
+
+    .layout-btn {
+        font: @layoutViewRegularFont;
+        background: #91C949;
+        border-radius: 4px;
+        color: #fff;
+        display: inline-block;
+        font-size: 14px;
+        padding: 10px 28px 10px 28px;
+        text-decoration: none;
+        text-align: center;
+        min-width: 60px;
+        position: relative;
+        cursor: pointer;
+      
+        &:hover {
+            text-decoration: none;
+            background: #78AC35;
+        }
+      
+        &.layout-btn-big {
+            font-size: 18px;
+            padding: 15px 20px;
+            min-width: 100px;
+        }
+        &.layout-btn-cancel {
+            background: #B1B1AE;
+            &:hover {
+                background: #BE8E8A;
+            }
+        }
+        &.layout-search-button {
+            top: -36px;
+            right: -217px;
+        }
+    }
+
+    .layout-input-header-top {
+        font : @layoutViewInputFieldFont;
+        font-size: 14px;
+        color: #3E3F36;
+        padding-bottom: 5px;
+        display:block;
+        input, label {
+            display:block;
+        }   
+        &.columns {
+            position: absolute;
+            top: 0;
+            left: 190px;
+        }
+    }
+    .layout-input-header-side {
+        font : @layoutViewInputFieldFont;
+        font-size: 14px;
+        color: #3E3F36;
+        padding-right: 5px;
+    }
+    .layout-input input[type="text"] {
+        font : @layoutViewInputFieldFont;
+        font-size: @layoutViewInputFieldFontSize;
+        line-height: @layoutViewInputFieldLineHeight;
+        color: @layoutViewInputFontColor;
+        background-color: @layoutViewInputFontBackgroundColor;
+        border-color: @layoutViewInputBorderColor;
+        border: 1px solid;
+        border-radius: 4px;
+        padding: 8px 14px;
+        transition: box-shadow 0.3s, border 0.3s;
+        &.search-query {
+            padding: 5px 14px;
+            width: 150px;
+            margin-left: 5px;
+            &:hover {
+                background: #EBEBEB;
+                text-decoration: none;
+            }
+            &:focus, .focus {
+                border: solid 1px #48AEAF;
+                box-shadow: 0 0 5px 1px #48AEAF;
+            }
+            &:disabled {
+                color: #9B9B9B;
+            }
+        }
+
+
+    }
+    .layout-input input[type="text"]:focus,
+    .layout-input input[type="text"].focus {
+        border: solid 1px #48AEAF;
+        box-shadow: 0 0 5px 1px #48AEAF;
+    }
+    .layout-input input[type="text"]:disabled,
+    .layout-view-input input[type="text"].disabled {
+        background-color: #F6F7F7;
+    }
+    .layout-input input[readonly] {
+        font : @layoutViewRegularFont;
+        color: #3E3F36;
+    }
+    .layout-input input[type="checkbox"] {
+        height: 14px;
+        width: 14px;
+        border-radius: 2px;
+        label {
+            font : @layoutViewRegularFont;
+            font-size: 14px;
+            color: #3E3F36;
+        }
+    }    
+    .layout-input input[type="radio"] {
+        -webkit-appearance: checkbox;
+        height: 14px;
+        width: 14px;
+        border-radius: 2px;
+        label {
+            font : @layoutViewRegularFont;
+            font-size: 14px;
+            color: #3E3F36;
+        }
+    }
+    .checkbox-radio{
+        label input {
+          display: none;/* <-- hide the default checkbox */
+        }
+        label span {/* <-- style the artificial checkbox */
+          height: 10px;
+          width: 10px;
+          border: 1px solid grey;
+          display: inline-block;
+        }
+        [type=radio]:checked + span {/* <-- style its checked state */
+          background: black;
+        }
+    }
+    .layoutview-attributes {
+        background-color: #FFFFFF;
+        text-align: left;
+        .label {
+            font: @themeExplosivePuppyLightFont;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #9B9B9B;
+        }
+        .value {
+            font: @themeExplosivePuppyRegularFont;
+            font-size: 14px;
+            color: #3E3F36;
+            &.bold {
+                font-weight: bold;
+            }
+        }
+
+    }               
+
+
+    .hyperlink {
+        color: @themeExplosivePuppyFontColorBlue;
+        text-decoration: underline;
+        cursor: pointer;
+        &:hover {
+            color: darken(@themeExplosivePuppyFontColorBlue, 10%);
+        }
+    }
+
+    .clickable {
+        cursor: pointer;
+    }
+}
+
+.toast-bottom-right {
+  	bottom: 200px;
+  	right: 200px;
+}
+
+

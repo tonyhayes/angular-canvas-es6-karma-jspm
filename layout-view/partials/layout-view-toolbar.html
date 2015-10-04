@@ -1,0 +1,9 @@
+<span class="layout-input layout-input-header-top">
+    <label>{{::'LAYOUT_VIEW_WORD_GAME' | translate}}</label>
+    <input class="search-query" type="text" ng-model="ctrl.search.itemSearch" ng-model-options="{updateOn: 'default blur',debounce: {default: 1000, blur: 0}, getterSetter: true, allowInvalid: true}" placeholder="{{ctrl.placeHolder}}" required/>
+
+</span>
+<span class="layout-input columns layout-input-header-top">
+    <label>{{::'LAYOUT_VIEW_DISPLAY_DEPTH' | translate}}</label>
+    <input class="search-query" type="text" ng-model="ctrl.displayDepth" required>
+</span>

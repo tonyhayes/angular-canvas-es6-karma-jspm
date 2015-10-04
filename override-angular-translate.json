@@ -1,0 +1,11 @@
+{
+	"shim": {
+		"angular-translate": {
+			"deps": [ "angular" ]
+		}
+	},
+	"registry": "jspm",
+	"dependencies": {
+		"angular": "^1.4"
+	}
+}
