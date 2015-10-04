@@ -34,8 +34,8 @@ describe('LayoutViewController', () => {
         it('should be done', function() {
             expect(ctrl.done).to.equal(true);
         });
-        it('should have a displayDepth of 2', function() {
-            expect(ctrl.displayDepth).to.equal(2);
+        it('should have a displayDepth of 6', function() {
+            expect(ctrl.displayDepth).to.equal(6);
         });
         it('should have a displayWord of me', function() {
             expect(ctrl.displayWord).to.equal('tony.magellan@gmail.com');
