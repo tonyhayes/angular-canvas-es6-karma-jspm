@@ -8,7 +8,7 @@ export default function thumbnailCanvasRenderer () {
         template: "<canvas width='300' height='500'  style='border:1px solid #000000;'/>",
         link: function(scope, element, attrs) {
            	scope.canvas = element.find('canvas')[0];
-            if(!scope.phrase || !scope.columns){
+            if(!scope.phrase || !scope.columns || isNaN(parseInt(scope.columns))){
                 return;
             }
             var phraseArr = scope.phrase.split('');
@@ -30,6 +30,10 @@ export default function thumbnailCanvasRenderer () {
             scope.$watchCollection(() => [
                 scope.columns, scope.phrase
             ], (newVal, oldVal) => {
+                scope.columns = parseInt(scope.columns,10);
+                if(!scope.phrase || !scope.columns){
+                    return;
+                }
                 phraseArr = scope.phrase.split('');
                 kBoardWidth = scope.columns;
                 kBoardHeight= Math.ceil(phraseArr.length / kBoardWidth);
