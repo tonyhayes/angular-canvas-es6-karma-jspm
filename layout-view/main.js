@@ -9,6 +9,7 @@ import onTranslateConfig from './config/translate-config';
 import layoutView from './layout-view-directive';
 import layoutViewToolbar from './layout-view-toolbar-directive';
 import layoutViewBody from './layout-view-body-directive';
+import thumbnailCanvasRenderer from './helpers/thumbnail-canvas-renderer';
 
 // dev testing only
 //import onMockConfig from './mock-responses/mock-config';
@@ -38,4 +39,5 @@ mainModule.config(onTranslateConfig)
 mainModule.controller('layoutViewController', LayoutViewController);
 mainModule.directive('layoutView', layoutView);
 mainModule.directive('layoutViewToolbar', layoutViewToolbar);
+mainModule.directive('thumbnailCanvasRenderer', thumbnailCanvasRenderer);
 mainModule.directive('layoutViewBody', layoutViewBody);
